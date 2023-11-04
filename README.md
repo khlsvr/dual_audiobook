@@ -6,7 +6,7 @@ Convert audio+subtitles to audio+audio
 
 1. Get the source audio + subtitle file. For example use filmot to search videos based on subtitles. https://filmot.com/captionLanguageSearch?titleQuery=%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&channelID=&captionLanguages=en%20&capLangExactMatch=1  Then download the video file with for example extracting only audio with `yt-dlp -x <youtube url>` and then download its subtitle with `yt-dlp --skip-download --write-ubs <youtube url>` or such.
 
-2. Prepare subtitle file by running sub_file_to_chop_format.sh. The script modifies the subfile to have only timestamp lines and increment end_time by 2s. Note (obsolete): fwiw this cmd removes all lines in subfile that do not start with string "00" (for under 1h audio): sed -n '/^00/p' a.vtt > b.vtt.
+2. Prepare subtitle file by running sub_file_to_chop_format.sh. The script modifies the subfile to have only timestamp lines and increments end_time by 2s. 
 
 3. Chop the source audio file to pieces based on subtitle files' timestamp using the chop_source_audio.sh bash script. Adjust the script for source audio and subtitle file and output dir if necessary.
 
